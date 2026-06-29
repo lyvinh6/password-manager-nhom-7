@@ -1,13 +1,15 @@
-# 🔐 Password Manager - Nhóm 7
+# Password Manager - Nhóm 7
 
 > Dự án môn **An Toàn Thông Tin** — Xây dựng hệ thống quản lý mật khẩu cá nhân bằng Python
 
 ---
 
-## 👥 Thành viên nhóm
+## Thành viên nhóm
 
 | Thành viên | Vai trò | Nhiệm vụ |
-|---|---|---|
+| Họ và Tên:
+| Họ và Tên:
+| Họ và Tên:
 | Bao | Kiến trúc & Bảo mật | Database, AES-256, logic mã hóa |
 | Vinh | Giao diện & Logic | UI/UX, Password Generator |
 | Quoc Bao | Báo cáo & Slide | Canva, Word report, Demo |
@@ -76,9 +78,9 @@ python main.py
 
 - [x] Cấu trúc dự án
 - [ ] Mã hóa Master Password (bcrypt/PBKDF2)
-- [ ] Mã hóa dữ liệu AES-256
+- [x] Mã hóa dữ liệu AES-256
 - [ ] Lưu trữ SQLite
-- [ ] Giao diện Tkinter
+- [x] Giao diện Tkinter
 - [ ] Password Generator
 - [ ] Tìm kiếm & phân loại mật khẩu
 - [ ] Xuất/Nhập dữ liệu
