@@ -13,6 +13,11 @@
 | Quoc Bao | Báo cáo & Slide | Canva, Word report, Demo |
 
 ---
+Demo giao diện
+Màn hình đăng nhập / đăng ký
+<img width="1023" height="887" alt="image" src="https://github.com/user-attachments/assets/aaf261d2-2972-45a4-a164-bb62d2f8e02d" />
+Màn hình Dashboard — quản lý mật khẩu
+<img width="1022" height="888" alt="image" src="https://github.com/user-attachments/assets/50d469bf-a164-436b-af68-04911102398c" />
 
 ## 🗂️ Cấu trúc dự án
 
