@@ -17,44 +17,46 @@
 ## 🗂️ Cấu trúc dự án
 
 ```
-password-manager/
+password-manager-nhom-7/
 │
-├── src/
-│   ├── core/               # [BAO] Kiến trúc & Bảo mật
-│   │   ├── __init__.py
-│   │   ├── crypto.py       # Mã hóa AES-256, hash master password
-│   │   ├── database.py     # Quản lý lưu trữ dữ liệu (SQLite)
-│   │   └── vault.py        # Logic chính: thêm/sửa/xóa/tìm mật khẩu
-│   │
-│   ├── ui/                 # [VINH] Giao diện & Logic
-│   │   ├── __init__.py
-│   │   ├── app.py          # App chính (Tkinter)
-│   │   ├── login_screen.py # Màn hình đăng nhập Master Password
-│   │   ├── main_screen.py  # Màn hình chính (danh sách mật khẩu)
-│   │   └── add_edit_screen.py # Form thêm/sửa mật khẩu
-│   │
-│   └── utils/              # [VINH] Tiện ích
-│       ├── __init__.py
-│       └── generator.py    # Password Generator tự động
+├── main.py                 # ⭐ Điểm khởi chạy chính của ứng dụng (CustomTkinter UI)
+├── crypto.py                # Hash/verify Master Password bằng bcrypt (module độc lập)
+├── database.py               # [Legacy] Bản SQLite cũ, không còn được main.py sử dụng
+├── vault.py                  # [Legacy] Bản nháp lớp Vault SQLite, chưa hoàn thiện
 │
-├── tests/                  # Unit tests
+├── core/                    # ⭐ Module lõi đang được main.py sử dụng thực tế
 │   ├── __init__.py
+│   ├── crypto_utils.py       # CryptoManager: sinh salt, dẫn xuất khóa PBKDF2, mã hóa AES-256-GCM
+│   └── db_manager.py         # VaultDB: lưu/đọc két sắt theo Username trên SQL Server (pyodbc)
+│
+├── src/                      # [Scaffold] Kiến trúc dự kiến ban đầu theo mô hình SQLite phân lớp
+│   ├── core/
+│   │   ├── crypto.py          # Bản AES-256-GCM + bcrypt dùng SQLite (song song với core/)
+│   │   ├── database.py        # CRUD SQLite (tương tự core/db_manager.py nhưng dùng sqlite3)
+│   │   └── vault.py           # Lớp Vault trung gian (setup/unlock/lock/CRUD)
+│   ├── ui/                    # Khung giao diện Tkinter thuần — hầu hết còn ở dạng TODO
+│   │   ├── app.py
+│   │   ├── login_screen.py
+│   │   ├── main_screen.py
+│   │   └── add_edit_screen.py
+│   └── utils/
+│       └── generator.py       # Sinh mật khẩu ngẫu nhiên (secrets) + đánh giá độ mạnh
+│
+├── tests/                    # Unit test cho bộ core của src/ (pytest)
 │   ├── test_crypto.py
 │   └── test_vault.py
 │
-├── docs/                   # [QUOC BAO] Tài liệu
-│   ├── bao_cao.md          # Nội dung báo cáo
-│   └── huong_dan_su_dung.md
+├── docs/
+│   └── bao_cao_outline.md     # Đề cương báo cáo của nhóm
 │
-├── assets/                 # Ảnh, icon cho slide
+├── assets/                   # Ảnh chụp giao diện demo, dùng cho README/slide
+│   ├── screenshot_login.png
+│   └── screenshot_dashboard.png
 │
-├── main.py                 # Điểm khởi chạy ứng dụng
-├── requirements.txt        # Thư viện cần cài
-├── .gitignore
+├── SETUP_GITHUB.sh           # Script tiện ích đẩy code lên GitHub lần đầu
+├── requirements.txt
 └── README.md
 ```
-
----
 
 ## ⚙️ Cài đặt & Chạy
 
@@ -76,12 +78,12 @@ python main.py
 
 - [x] Cấu trúc dự án
 - [ ] Mã hóa Master Password (bcrypt/PBKDF2)
-- [ ] Mã hóa dữ liệu AES-256
+- [x] Mã hóa dữ liệu AES-256
 - [ ] Lưu trữ SQLite
-- [ ] Giao diện Tkinter
-- [ ] Password Generator
+- [x] Giao diện Tkinter
+- [x] Password Generator
 - [ ] Tìm kiếm & phân loại mật khẩu
-- [ ] Xuất/Nhập dữ liệu
+- [x] Xuất/Nhập dữ liệu
 
 ---
 
